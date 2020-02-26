@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="10dp"
+    android:background="?attr/app_background"
+    tools:context=".activity.ActivityMain">
+
+    <!--应用主界面，包括关于信息以及蓝牙设备列表，两者通过显示隐藏来切换-->
+
+    <!--蓝牙开启及关闭切换按钮，早期添加的，现在应该没用了-->
+    <!--<ToggleButton-->
+        <!--android:id="@+id/ble_state"-->
+        <!--android:background="@drawable/selector_butn_toogle"-->
+        <!--android:textOn="" android:textOff="" android:text=""-->
+        <!--android:checked="false"-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_height="0dp"-->
+        <!--app:layout_constraintLeft_toLeftOf="parent"-->
+        <!--app:layout_constraintTop_toTopOf="parent"/>-->
+
+    <TextView
+        android:id="@+id/app_about"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:padding="5dp"
+        android:textSize="18sp"
+        android:textColor="?attr/app_about_textcolor"
+        android:text="@string/app_about"
+        android:scrollbars = "vertical"
+        android:visibility="visible"
+        app:layout_constraintHeight_percent="0.9"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/device_conn"/>
+
+    <ListView
+        android:id="@+id/ble_list"
+        android:textColor="#000000"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:visibility="invisible"
+        app:layout_constraintHeight_percent="0.9"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/device_conn"/>
+
+    <Button
+        android:id="@+id/device_conn"
+        android:textColor="@color/colorWhite"
+        android:text="连接设备"
+        android:gravity="center"
+        android:textSize="18sp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="?attr/app_blescan_btn_color"
+        app:layout_constraintHeight_percent="0.1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ble_list"/>
+
+
+</android.support.constraint.ConstraintLayout>

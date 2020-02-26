@@ -1,0 +1,194 @@
+<resources>
+    <string name="app_name">串口工具</string>
+    <!--<string name="app_name">蓝牙串口助手</string>-->
+    <string name="page_one_name">首页</string>
+    <string name="page_two_name">按键模式</string>
+    <string name="page_three_name">雕刻模式</string>
+    <string name="page_four_name">视觉模式</string>
+    <string name="page_five_name">功能选择</string>
+    <string name="page_six_name">语音模式</string>
+
+    <string name="open_failed_info">权限获取失败，请重新连接</string>
+    <string name="no_devices">无设备连接</string>
+    <string name="no_fct">当前设备不支持蓝牙功能</string>
+
+    <string name="device_opening">正在打开...</string>
+    <string name="device_open">已打开</string>
+    <string name="device_close">已关闭蓝牙</string>
+
+    <string name="scan_begin">开始搜索</string>
+    <string name="scan_complete">搜索完毕</string>
+
+    <string name="disconnected">未连接</string>
+    <string name="connecting">连接中...</string>
+    <string name="connect_error">连接失败</string>
+    <string name="connect_success">设备状态：已连接</string>
+    <string name="connect_lost">设备状态：已断开</string>
+
+    <string name="device_state">设备状态</string>
+    <string name="matching_begin">正在配对...</string>
+    <string name="matching_complete">完成配对</string>
+    <string name="matching_failed">配对失败</string>
+    <string name="matching_cancel">取消配对</string>
+
+    <!--<string name="key_value_set">按键设置/保存</string>-->
+    <!--<string name="key_value_save">保存按键设置</string>-->
+
+    <string name="key_value_set">按键设置</string>
+    <string name="key_value_save">按键保存</string>
+    <string name="action_settings_0">键盘1</string>
+    <string name="action_settings_1">键盘2</string>
+    <string name="action_settings_2">键盘3</string>
+    <string name="action_settings_3">键盘4</string>
+    <string name="action_settings_4">帮助</string>
+    <string name="action_settings_5">雕刻</string>
+    <string name="operation_confirm">清屏</string>
+    <string name="cls_complete">屏幕清除完成</string>
+    <string name="cls_not_complete">请保存按键设置</string>
+
+    <!--按键/命令行模式-->
+    <string name="mode_command_btn">命令行</string>
+    <string name="mode_keyboard_btn">按键</string>
+    <string name="mode_hex_btn">HEX</string>
+    <string name="switch_fn">功能键</string>
+    <string name="send_display_switch">显示发送</string>
+
+    <string name="rec_msg_box_title">接收区</string>
+    <string name="send_msg_box_title">发送区</string>
+    <string name="send">发送</string>
+
+    <string name="rule_text">0123456789abcdefghijklmnopqrstuvwxyz
+ABCDEFGHIJKLMNOPQRSTUVWXYZ`¬!"£$%^*()~=#{}[];':,./?/*-_+&#060;&#062;&#064;&#038;</string>
+    <string name="interval_rule_text">0123456789+&#060;&#062;&#064;&#038;</string>
+    <string name="grbl_rule_text">0123456789&#060;&#062;&#064;&#038;</string>
+
+    <string name="fn_00">功能1</string>
+    <string name="fn_01">功能2</string>
+    <string name="fn_02">功能3</string>
+    <string name="fn_03">功能4</string>
+    <string name="fn_10">功能5</string>
+    <string name="fn_11">功能6</string>
+    <string name="fn_12">功能7</string>
+    <string name="fn_13">功能8</string>
+    <string name="fn_20">功能9</string>
+    <string name="fn_21">功能10</string>
+    <string name="fn_22">功能11</string>
+    <string name="fn_23">功能12</string>
+    <string name="fn_30">功能13</string>
+    <string name="fn_31">功能14</string>
+    <string name="fn_32">功能15</string>
+    <string name="fn_33">功能16</string>
+
+    <string name="fn_go">前进</string>
+    <string name="fn_back">后退</string>
+    <string name="fn_left">左转</string>
+    <string name="fn_right">右转</string>
+    <string name="fn_stop">停止</string>
+
+    <string name="key_dialog_text0">按键名:</string>
+    <string name="key_dialog_text1">短按发送值:</string>
+    <string name="key_dialog_text2">长按发送值:</string>
+    <string name="key_dialog_text3">释放发送值:</string>
+    <string name="interval_dialog_text">发送间隔(100-500):</string>
+
+    <string name="cv_load_cascade_success">分类器加载成功</string>
+    <string name="cv_load_cascade_failed">分类器加载失败</string>
+    <string name="cv_load_cascade_info">分类器未加载，请重启应用</string>
+
+    <!--分辨率-->
+    <string name="max_dpi">1280x720</string>
+    <string name="midu_dpi">800x480</string>
+    <string name="midd_dpi">640x480</string>
+    <string name="min_dpi">320x240</string>
+
+    <!--tracking页面-->
+    <string name="cap_label">相机</string>
+    <string name="set_label">设置</string>
+
+    <string name="color_mode_label">颜色</string>
+    <string name="face_mode_label">人脸</string>
+    <string name="vmin_label">vmin  </string>
+    <string name="vmax_label">vmax</string>
+    <string name="smin_label">smin  </string>
+    <string name="scale_label">scale</string>
+    <string name="defult_pos">( 0, 0, 0 )</string>
+
+    <item name="Tag_SLAVE" type="id"></item>
+    <item name="Tag_HOST" type="id"></item>
+
+    <string name="app_about">
+        软件说明：\n
+        <!--版本号-->
+        \t\t版本：1.3 beta 2\n\n
+        <!--版本号-->
+        \t\t本软件为安卓客户端串口通信工具，可连接单片机蓝牙模块及USB串口设备\n\n
+
+        \t\t软件模块：\n
+        \t\t1、键盘模式\n
+        \t\t2、命令行模式\n
+        \t\t3、语音控制模式\n
+        \t\t4、视觉(颜色、人脸)跟踪模式\n\n
+
+        \t\t软件功能：\n
+        \t\t1、自定义按键功能\n
+        \t\t2、可检测并连接USB串口设备\n
+        \t\t3、可连接模拟器加载的PC串口设备，模拟器安卓版本建议(5.0)，需ROOT权限\n
+        \t\t4、可连接蓝牙模块，如果选定的蓝牙设备未经过配对，系统会自动提示你进行配对操作。完成配对后尝试重新连接\n\n
+
+        <!--\t\t网站：http://www.robottime.cn/\n-->
+    </string>
+
+    <string name="setting_begin_str">
+        进入按键设置模式，设置完成后点击保存按钮退出按键设置模式
+    </string>
+
+    <string name="setting_end_str">
+        按键设置完成
+    </string>
+
+    <string name="help_info">
+        使用说明：\n
+        打开右侧边栏进行相关设置;\n
+        按键设置模式可对每个按键的名称\n
+        以及按下、长按、释放三种触发状态下所发送的内容进行设置;\n
+        可通过侧边栏设置按键布局
+    </string>
+
+    <string name="help_function_adding">
+        功能完善中...
+    </string>
+
+    <!--更新提示-->
+    <string name="check_update_begin">更新检测中...</string>
+    <string name="check_update_complete">检测完成</string>
+    <string name="no_update">当前为最新版本,无需更新</string>
+    <string name="download_failed">下载失败，请开启存储权限</string>
+    <string name="download_complete">下载完成</string>
+    <string name="no_sd_card">未找到SD卡</string>
+
+    <!--菜单选项-->
+    <string name="check_update">检查更新</string>
+    <string name="theme">主题</string>
+    <string name="about">关于</string>
+    <string name="feedback">反馈</string>
+
+    <!--URL-->
+    <!--<string name="company_url">\nwww.robottime.cn</string>-->
+    <string name="update_url">https://www.wiyixiao4.com/api/ble/update/ble_check_update.json</string>
+
+    <!--弹窗信息-->
+    <string name="info">
+        <!--\t公司名称：机器时代（北京）科技有限公司\n\n-->
+        <!--\t公司网址：http://www.robottime.cn\n\n-->
+        <!--\t公众号：\t\tjiqishidai\n\n-->
+        \t扫描下载APP：\n\n
+    </string>>
+
+    <!--反馈-->
+    <string name="fadeback_title">BUG及建议反馈 (09:00&#8211;18:00)</string>
+    <string name="fadeback_cancel">取消</string>
+    <string name="fadeback_submit">提交</string>
+    <string name="fadeback_error">提交失败，稍后自动提交</string>
+    <string name="fadeback_success">提交成功，感谢您的反馈</string>
+
+</resources>

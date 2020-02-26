@@ -1,0 +1,470 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawerlayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.ActivityGrbl">
+
+    <!--原来只打算添加雕刻功能，后来想想多添加一些功能也不错
+        所以原来命名是grbl_page.xml，懒得改了，主要是图像处理页面
+    -->
+
+    <!--主界面布局-->
+    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorBackGround">
+
+        <RelativeLayout
+            android:id="@+id/grbl_page_title"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/gcode_msg_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:layout_alignParentLeft="true"
+                android:gravity="center"
+                android:text="图像处理"
+                android:textSize="24sp"
+                android:layout_marginLeft="10dp"
+                android:textColor="@color/colorWhite"/>
+
+            <ImageButton
+            android:id="@+id/img_add_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="5dp"
+            android:background="@mipmap/img_add"
+            android:layout_alignParentRight="true"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/gcode_msg_content"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintHeight_percent="0.4"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/grbl_page_title">
+
+            <TextView
+                android:id="@+id/grbl_msg_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/view_rect_list"
+                android:scrollbars="vertical"
+                android:fadeScrollbars="false"
+                android:padding="1dp"
+                android:visibility="gone"/>
+
+            <ImageView
+            android:adjustViewBounds="true"
+            android:id="@+id/img_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="visible"
+            android:background="@drawable/view_rect_list" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/grbl_inputbox"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:background="@color/colorBackGround"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/gcode_msg_content">
+
+            <GridLayout
+                android:id="@+id/grbl_cmd_group"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:columnCount="4"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:visibility="visible"
+                android:background="@color/colorTransparent">
+
+                <EditText
+                    android:id="@+id/grbl_input_box"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:padding="0dp"
+                    android:layout_column="0"
+                    android:layout_gravity="fill"
+                    android:layout_columnSpan="3"
+                    android:imeOptions="actionSend"
+                    android:digits="@string/rule_text"
+                    android:singleLine="true"
+                    android:visibility="visible" />
+
+                <Button
+                    android:id="@+id/grbl_send_btn"
+                    android:layout_column="3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="visible"
+                    android:text="@string/send" />
+
+            </GridLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/cv_btn_group"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:scrollbars="vertical"
+            app:layout_constraintHeight_percent="0.42"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/grbl_inputbox">
+
+            <GridLayout
+                android:columnCount="6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:text="Step: "
+                    android:textSize="16sp"/>
+
+                <EditText
+                    android:id="@+id/step_et"
+                    android:layout_width="50dp"
+                    android:paddingLeft="5dp"
+                    android:text="1"
+                    android:digits="@string/grbl_rule_text"
+                    android:background="@color/colorWhite"/>
+
+                <TextView
+                    android:text="Speed: "
+                    android:textSize="16sp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_row="0"
+                    android:layout_column="2"/>
+
+                <EditText
+                    android:id="@+id/speed_et"
+                    android:layout_row="0"
+                    android:layout_column="3"
+                    android:layout_width="50dp"
+                    android:text="500"
+                    android:digits="@string/grbl_rule_text"
+                    android:background="@color/colorWhite"/>
+
+                <TextView
+                    android:text="切换: "
+                    android:textSize="16sp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_row="0"
+                    android:layout_column="4"/>
+
+                <ToggleButton
+                    android:id="@+id/content_switch_tb"
+                    android:textOn=""
+                    android:textOff=""
+                    android:layout_row="0"
+                    android:layout_column="5"
+                    android:checked="true"
+                    android:background="@mipmap/on"
+                    android:layout_width="60dp"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="10dp"/>
+
+            </GridLayout>
+
+            <GridLayout
+                android:id="@+id/grbl_btn_group"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:columnCount="5"
+                android:visibility="gone"
+                android:layout_marginTop="120px"
+                android:layout_marginLeft="40px"
+                android:layout_marginRight="40px"
+                android:layout_marginBottom="20px">
+
+                <Button
+                    android:id="@+id/btn_up"
+                    android:layout_row="0"
+                    android:text="+Y"
+                    android:layout_column="1"
+                    android:background="@drawable/view_radius"/> <!--上键-->
+                <Button
+                    android:id="@+id/btn_left"
+                    android:layout_row="1"
+                    android:layout_column="0"
+                    android:text="-X"
+                    android:background="@drawable/view_radius"/> <!--左键-->
+                <Button
+                    android:id="@+id/btn_home"
+                    android:layout_row="1"
+                    android:layout_column="1"
+                    android:text="Home"
+                    android:background="@drawable/view_radius"/> <!--中键-->
+                <Button
+                    android:id="@+id/btn_right"
+                    android:layout_row="1"
+                    android:layout_column="2"
+                    android:text="+X"
+                    android:background="@drawable/view_radius"/> <!--右键-->
+                <Button
+                    android:id="@+id/btn_down"
+                    android:layout_row="2"
+                    android:layout_column="1"
+                    android:text="-Y"
+                    android:background="@drawable/view_radius"/> <!--下键-->
+
+                <Button
+                    android:id="@+id/btn_begin"
+                    android:layout_row="2"
+                    android:layout_column="4"
+                    android:text="Begin"
+                    android:background="@drawable/view_radius"/>
+
+                <Button
+                    android:id="@+id/btn_unlock"
+                    android:layout_row="1"
+                    android:layout_column="4"
+                    android:text="Unlock"
+                    android:background="@drawable/view_radius"/> <!--解锁键-->
+                <Button
+                    android:id="@+id/btn_zero"
+                    android:layout_row="0"
+                    android:layout_column="4"
+                    android:text="Zero"
+                    android:background="@drawable/view_radius"/> <!--归零键-->
+
+            </GridLayout>
+
+            <GridLayout
+                android:id="@+id/img_set_group"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="visible"
+                android:columnCount="6"
+                android:layout_marginTop="100px"
+                android:layout_marginLeft="40px"
+                android:layout_marginRight="40px"
+                android:layout_marginBottom="20px">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:orientation="horizontal"
+                    android:gravity="left"
+                    android:layout_row="0"
+                    android:layout_column="0">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="长度(mm): "
+                        android:textSize="16sp"/>
+
+                    <EditText
+                        android:id="@+id/width_et"
+                        android:layout_width="50dp"
+                        android:layout_height="25dp"
+                        android:paddingLeft="5dp"
+                        android:text="80"
+                        android:digits="@string/grbl_rule_text"
+                        android:background="@color/colorWhite"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="宽度(mm): "
+                        android:layout_marginLeft="10dp"
+                        android:textSize="16sp"/>
+
+                    <EditText
+                        android:id="@+id/height_et"
+                        android:layout_width="50dp"
+                        android:layout_height="25dp"
+                        android:paddingLeft="5dp"
+                        android:text="80"
+                        android:digits="@string/grbl_rule_text"
+                        android:background="@color/colorWhite"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:orientation="horizontal"
+                    android:gravity="left"
+                    android:layout_row="1"
+                    android:layout_column="0"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp">
+
+                    <Button
+                        android:id="@+id/action_rotate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="旋转"
+                        android:textSize="14sp"
+                        android:background="@drawable/view_radius"/>
+
+                    <Button
+                        android:id="@+id/action_togray"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="灰度"
+                        android:textSize="14sp"
+                        android:background="@drawable/view_radius"/>
+
+                    <Button
+                        android:id="@+id/action_contours"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="轮廓"
+                        android:textSize="14sp"
+                        android:background="@drawable/view_radius"/>
+
+                    <Button
+                        android:id="@+id/action_fill"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="填充"
+                        android:textSize="14sp"
+                        android:background="@drawable/view_radius"/>
+
+                    <Button
+                        android:id="@+id/action_point"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="抖动"
+                        android:textSize="14sp"
+                        android:background="@drawable/view_radius"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:orientation="horizontal"
+                    android:gravity="left"
+                    android:layout_row="2"
+                    android:layout_column="0"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp">
+
+                    <Button
+                        android:id="@+id/action_color"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="颜色"
+                        android:textSize="14sp"
+                        android:background="@drawable/view_radius"/>
+
+                    <Button
+                        android:id="@+id/action_track"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="跟踪"
+                        android:textSize="14sp"
+                        android:background="@drawable/view_radius"/>
+
+                    <Button
+                        android:id="@+id/action_set"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="设置"
+                        android:textSize="14sp"
+                        android:background="@drawable/view_radius"/>
+
+                    <Button
+                        android:id="@+id/action_save"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="保存"
+                        android:textSize="14sp"
+                        android:background="@drawable/view_radius"/>
+
+                    <Button
+                        android:id="@+id/action_create"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="G代码"
+                        android:textSize="14sp"
+                        android:background="@drawable/view_radius"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:layout_row="3"
+                    android:layout_column="0"
+                    android:visibility="visible">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="低阈值 "
+                        android:textSize="16sp"/>
+
+                    <SeekBar
+                        android:id="@+id/threshold1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:maxHeight="2dp"
+                        android:max="255"
+                        android:progress="127"
+                        android:thumb="@drawable/seek_bar_thumb" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:layout_row="4"
+                    android:layout_column="0"
+                    android:visibility="visible">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="高阈值 "
+                        android:textSize="16sp"/>
+
+                    <SeekBar
+                        android:id="@+id/threshold2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:maxHeight="2dp"
+                        android:max="255"
+                        android:progress="127"
+                        android:thumb="@drawable/seek_bar_thumb" />
+
+                </LinearLayout>
+
+            </GridLayout>
+
+
+        </RelativeLayout>
+
+    </android.support.constraint.ConstraintLayout>
+
+</android.support.v4.widget.DrawerLayout>

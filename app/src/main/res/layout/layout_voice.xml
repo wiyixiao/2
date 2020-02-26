@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_weight="0.4"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@drawable/view_rect_list">
+
+            <ListView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            </ListView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_weight="0.1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:background="@drawable/view_line_leftright">
+
+            <LinearLayout
+                android:layout_weight="0.5"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:padding="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="模型："
+                    android:textSize="16sp"
+                    android:textColor="@color/colorPrimary"/>
+
+                <Spinner
+                    android:id="@+id/model_spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                </Spinner>
+
+            </LinearLayout>
+
+            <RadioGroup
+                android:id="@+id/language_rg"
+                android:layout_weight="0.5"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/zh_rbtn"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:text="中文"
+                    android:textSize="16sp"
+                    android:textColor="@color/colorPrimary"
+                    android:checked="true"
+                    android:paddingLeft="5dp"/>
+
+                <RadioButton
+                    android:id="@+id/en_rbtn"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:paddingLeft="5dp"
+                    android:text="英文"
+                    android:textSize="16sp"
+                    android:textColor="@color/colorPrimary"/>
+
+            </RadioGroup>
+
+
+        </LinearLayout>
+        
+        <LinearLayout
+            android:layout_weight="0.4"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            android:background="@color/colorBackGround"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/tv_voice_state"
+                android:text="已停止"
+                android:layout_weight="0.2"
+                android:layout_height="0dp"
+                android:layout_width="match_parent"
+                android:textColor="@color/colorWhiteSmoke"
+                android:textSize="16sp"
+                android:gravity="center"/>
+
+            <LinearLayout
+                android:layout_weight="0.6"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:orientation="vertical"
+                android:gravity="center">
+                <SurfaceView
+                    android:id="@+id/sv_voice"
+                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:visibility="gone">
+
+                </SurfaceView>
+
+                <ImageView
+                    android:id="@+id/iv_voice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/voice"
+                    android:visibility="visible" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_res"
+                android:layout_weight="0.2"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:gravity="center"/>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/record_btn"
+            android:layout_weight="0.1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:text="长按识别"
+            android:textSize="18sp"
+            android:textColor="@color/colorWhite"
+            android:background="@color/colorPrimary"/>
+
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>

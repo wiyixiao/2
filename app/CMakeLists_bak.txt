@@ -1,0 +1,100 @@
+#cmake文件解读
+#https://blog.csdn.net/guanguanboy/article/details/83415871
+
+# For more information about using CMake with Android Studio, read the
+# documentation: https://d.android.com/studio/projects/add-native-code.html
+
+# Sets the minimum version of CMake required to build the native library.
+
+cmake_minimum_required(VERSION 3.4.1)
+
+set(OpenCV_STATIC ON)
+
+# Creates and names a library, sets it as either STATIC
+# or SHARED, and provides the relative paths to its source code.
+# You can define multiple libraries, and CMake builds them for you.
+# Gradle automatically packages shared libraries with your APK.
+
+#consult:https://www.cnblogs.com/BobGo/p/7341581.html
+#set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/../jniLibs/${ANDROID_ABI})
+
+include_directories(
+                        ${CMAKE_SOURCE_DIR}/src/main/cpp
+                        ${CMAKE_SOURCE_DIR}/src/main/include
+                        ${CMAKE_SOURCE_DIR}/src/main/include/opencv2
+                    )
+
+#aux_source_directory(src/main/cpp SRC_LIST)
+add_library( opencv_java4 SHARED IMPORTED )
+set_target_properties( opencv_java4 PROPERTIES IMPORTED_LOCATION ${CMAKE_SOURCE_DIR}/src/main/jniLibs/libs/${ANDROID_ABI}/libopencv_java4.so )
+add_library( opencv_calib3d STATIC IMPORTED )
+set_target_properties( opencv_calib3d PROPERTIES IMPORTED_LOCATION ${CMAKE_SOURCE_DIR}/src/main/jniLibs/libs/${ANDROID_ABI}/libopencv_calib3d.a )
+add_library( opencv_core STATIC IMPORTED )
+set_target_properties( opencv_core PROPERTIES IMPORTED_LOCATION ${CMAKE_SOURCE_DIR}/src/main/jniLibs/libs/${ANDROID_ABI}/libopencv_core.a )
+add_library( opencv_video STATIC IMPORTED )
+set_target_properties( opencv_video PROPERTIES IMPORTED_LOCATION ${CMAKE_SOURCE_DIR}/src/main/jniLibs/libs/${ANDROID_ABI}/libopencv_video.a )
+add_library( opencv_objdetect STATIC IMPORTED )
+set_target_properties( opencv_objdetect PROPERTIES IMPORTED_LOCATION ${CMAKE_SOURCE_DIR}/src/main/jniLibs/libs/${ANDROID_ABI}/libopencv_objdetect.a )
+add_library( opencv_highgui STATIC IMPORTED )
+set_target_properties( opencv_highgui PROPERTIES IMPORTED_LOCATION ${CMAKE_SOURCE_DIR}/src/main/jniLibs/libs/${ANDROID_ABI}/libopencv_highgui.a )
+add_library( opencv_imgproc STATIC IMPORTED )
+set_target_properties( opencv_imgproc PROPERTIES IMPORTED_LOCATION ${CMAKE_SOURCE_DIR}/src/main/jniLibs/libs/${ANDROID_ABI}/libopencv_imgproc.a )
+add_library( opencv_imgcodecs STATIC IMPORTED )
+set_target_properties( opencv_imgcodecs PROPERTIES IMPORTED_LOCATION ${CMAKE_SOURCE_DIR}/src/main/jniLibs/libs/${ANDROID_ABI}/libopencv_imgcodecs.a )
+
+add_library( cpufeatures STATIC IMPORTED )
+set_target_properties( cpufeatures PROPERTIES IMPORTED_LOCATION ${CMAKE_SOURCE_DIR}/src/main/jniLibs/3rdparty/${ANDROID_ABI}/libcpufeatures.a )
+add_library( IlmImf STATIC IMPORTED )
+set_target_properties( IlmImf PROPERTIES IMPORTED_LOCATION ${CMAKE_SOURCE_DIR}/src/main/jniLibs/3rdparty/${ANDROID_ABI}/libIlmImf.a )
+add_library( libjasper STATIC IMPORTED )
+set_target_properties( libjasper PROPERTIES IMPORTED_LOCATION ${CMAKE_SOURCE_DIR}/src/main/jniLibs/3rdparty/${ANDROID_ABI}/liblibjasper.a )
+add_library( libjpeg-turbo STATIC IMPORTED )
+set_target_properties( libjpeg-turbo PROPERTIES IMPORTED_LOCATION ${CMAKE_SOURCE_DIR}/src/main/jniLibs/3rdparty/${ANDROID_ABI}/liblibjpeg-turbo.a )
+add_library( libpng STATIC IMPORTED )
+set_target_properties( libpng PROPERTIES IMPORTED_LOCATION ${CMAKE_SOURCE_DIR}/src/main/jniLibs/3rdparty/${ANDROID_ABI}/liblibpng.a )
+add_library( libprotobuf STATIC IMPORTED )
+set_target_properties( libprotobuf PROPERTIES IMPORTED_LOCATION ${CMAKE_SOURCE_DIR}/src/main/jniLibs/3rdparty/${ANDROID_ABI}/liblibprotobuf.a )
+add_library( libtiff STATIC IMPORTED )
+set_target_properties( libtiff PROPERTIES IMPORTED_LOCATION ${CMAKE_SOURCE_DIR}/src/main/jniLibs/3rdparty/${ANDROID_ABI}/liblibtiff.a )
+add_library( libwebp STATIC IMPORTED )
+set_target_properties( libwebp PROPERTIES IMPORTED_LOCATION ${CMAKE_SOURCE_DIR}/src/main/jniLibs/3rdparty/${ANDROID_ABI}/liblibwebp.a )
+add_library( tbb STATIC IMPORTED )
+set_target_properties( tbb PROPERTIES IMPORTED_LOCATION ${CMAKE_SOURCE_DIR}/src/main/jniLibs/3rdparty/${ANDROID_ABI}/libtbb.a )
+add_library( tegra_hal STATIC IMPORTED )
+set_target_properties( tegra_hal PROPERTIES IMPORTED_LOCATION ${CMAKE_SOURCE_DIR}/src/main/jniLibs/3rdparty/${ANDROID_ABI}/libtegra_hal.a )
+add_library( quirc STATIC IMPORTED )
+set_target_properties( quirc PROPERTIES IMPORTED_LOCATION ${CMAKE_SOURCE_DIR}/src/main/jniLibs/3rdparty/${ANDROID_ABI}/libquirc.a )
+
+file(GLOB_RECURSE CPP_SRCS "src/main/cpp/*.cpp")
+
+add_library( native-lib SHARED ${CPP_SRCS} )
+add_library( tracking-lib SHARED ${CPP_SRCS} )
+
+# Searches for a specified prebuilt library and stores the path as a
+# variable. Because CMake includes system libraries in the search path by
+# default, you only need to specify the name of the public NDK library
+# you want to add. CMake verifies that the library exists before
+# completing its build.
+
+find_library( log-lib log )
+
+#tracking-lib
+#opencv_calib3d
+
+target_link_libraries(
+                        native-lib
+
+                        opencv_java4
+                        opencv_video
+                        opencv_objdetect
+                        opencv_imgcodecs
+                        opencv_imgproc
+                        opencv_core
+                        opencv_highgui
+
+                        jnigraphics
+                        android
+
+                        log
+                       ${log-lib}
+                   )

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape>
+            <solid android:color="#C86400" />//边框颜色
+        </shape>
+    </item>
+    <!--    想保留哪一边就设置哪一边边框，列如只有下边框：bottom="0.7dp"，相应的有上top="",left="",right=""    -->
+    <item
+        android:left="1dp"
+        android:right="1dp">
+        <shape>
+            <solid android:color="@color/colorWhiteSmoke" />//整个框背景颜色
+        </shape>
+    </item>
+</layer-list>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:paddingTop="20dp"
+    android:paddingBottom="20dp"
+    android:gravity="center">
+
+    <!--emmmmmm......这个页面，好像是侧边栏吧。。-->
+
+    <ImageView
+        android:id="@+id/item_imageview"
+        android:layout_width="48px"
+        android:layout_height="48px"
+        android:layout_gravity="center"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="10dp"
+        android:src="@mipmap/host_ble"/>
+
+    <TextView
+        android:id="@+id/item_textview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="设置选项"
+        android:textSize="18sp"/>
+
+</LinearLayout>

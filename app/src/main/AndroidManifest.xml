@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.robottime">
+    <!--读取系统信息-->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <!-- 蓝牙 -->
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <!--GPS-->
+    <uses-permission android:name="android.Manifest.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <!--网络权限-->
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <!--外部存储读写权限-->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!--安装权限-->
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES"/>
+    <!--相机权限-->
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <!--USB设备权限-->
+    <uses-feature android:name="android.hardware.usb.host" 
+        android:required="true"/>
+    <uses-permission android:name="android.hardware.usb.host"/>
+    <!--麦克风权限-->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <!--振动权限-->
+    <uses-permission android:name="android.permission.VIBRATE"/>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/StartTheme"
+        android:networkSecurityConfig="@xml/network_security_config">
+        <activity android:name="com.example.robottime.activity.ActivityStart"
+            android:screenOrientation="nosensor">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <!--<intent-filter>-->
+                <!--<action android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED" />-->
+            <!--</intent-filter>-->
+            <!--<meta-data-->
+                <!--android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED"-->
+                <!--android:resource="@xml/device_filter" />-->
+        </activity>
+        <activity
+            android:label="@string/page_one_name"
+            android:name=".activity.ActivityMain"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation = "nosensor"
+            android:theme="@style/AppTheme">
+
+        </activity>
+        <activity
+            android:label="蓝牙设备列表"
+            android:name=".activity.ActivityBleDevice"
+            android:screenOrientation="nosensor"
+            android:theme="@style/AppTheme">
+
+        </activity>
+        <activity
+            android:label="USB设备列表"
+            android:name=".activity.ActivityUsbDevice"
+            android:screenOrientation="nosensor"
+            android:theme="@style/AppTheme">
+
+        </activity>
+        <activity
+            android:name=".activity.ActivityFunPanel"
+            android:label="@string/page_five_name"
+            android:screenOrientation="nosensor"
+            android:theme="@style/CommonTheme">
+
+        </activity>
+        <activity
+            android:label="@string/page_two_name"
+            android:name=".activity.ActivityKeyboard"
+            android:screenOrientation = "nosensor"
+            android:theme="@style/CommonTheme"
+            >
+        </activity>
+        <activity
+            android:label="@string/page_three_name"
+            android:name=".activity.ActivityGrbl"
+            android:screenOrientation = "nosensor"
+            android:theme="@style/CommonTheme"
+            >
+
+        </activity>
+        <activity
+            android:label="@string/page_four_name"
+            android:name=".activity.ActivityCv"
+            android:screenOrientation="landscape"
+            android:theme="@style/CommonTheme"
+            >
+
+        </activity>
+        <activity
+            android:label="@string/page_six_name"
+            android:name=".activity.ActivityVoice"
+            android:screenOrientation="nosensor"
+            android:theme="@style/CommonTheme"
+            >
+
+        </activity>
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities=".activity.ActivityMain.fileprovider"
+            android:grantUriPermissions="true"
+            android:exported="false">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+        <uses-library android:name="org.apache.http.legacy" android:required="false" />
+        <receiver android:name=".SheduleReceiver" android:process=":remote" />
+    </application>
+
+</manifest>

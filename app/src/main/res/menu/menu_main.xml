@@ -1,0 +1,32 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.robottime.uitest.CommunicationActivity">
+
+    <item
+        android:id="@+id/item_0"
+        android:orderInCategory="100"
+        android:title="@string/check_update"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/item_1"
+        android:orderInCategory="100"
+        android:visible="false"
+        android:title="@string/theme"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/item_2"
+        android:orderInCategory="100"
+        android:title="@string/feedback"
+        app:showAsAction="never" />
+
+    <!--<item-->
+        <!--android:id="@+id/item_3"-->
+        <!--android:orderInCategory="100"-->
+        <!--android:title="@string/about"-->
+        <!--app:showAsAction="never" />-->
+
+
+</menu>

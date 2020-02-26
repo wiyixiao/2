@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--黑白及透明色-->
+    <color name="colorBlack">#000000</color>
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="colorTransparent">#00000000</color>
+    
+    <!--灰色-->
+    <color name="colorC4">#C4C4C4</color>
+    <color name="colorEA">#EAEAEA</color>
+    <color name="color63">#636363</color>
+
+    <!--主题色-->
+    <color name="colorBackGround">#EBB900</color>
+    <color name="colorForeGround">#C86400</color>
+
+    <!--<color name="colorPrimary">#3F51B5</color>-->
+    <!--<color name="colorPrimaryDark">#303F9F</color>-->
+
+    <!--标题栏和系统栏颜色-->
+    <color name="colorPrimary">#C86400</color>
+    <color name="colorPrimaryDark">#C86400</color>
+
+    <!--弹出框图标颜色-->
+    <!--<color name="colorAccent">#FF4081</color>-->
+    <color name="colorAccent">#C86400</color>
+
+    <!--终端前景色-->
+    <color name="colorDarkGreen">#006400</color>
+
+    <!--白烟色-->
+    <color name="colorWhiteSmoke">#F5F5F5</color>
+
+    <!--红色-->
+    <color name="colorRed">#FF0000</color>
+</resources>

@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--<android.support.constraint.ConstraintLayout-->
+
+
+<android.support.v4.widget.SwipeRefreshLayout
+
+
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/usbSwipeRefreshLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/colorBackGround">
+
+        <TextView
+            android:id="@+id/refresh_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="下拉刷新"
+            android:textSize="18sp"
+            android:textColor="@color/colorPrimary"
+            android:gravity="center" />
+
+        <LinearLayout
+            android:id="@+id/otg_layout"
+            android:layout_weight="0.9"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            android:visibility="visible">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="USB设备"
+                android:padding="10dp" />
+
+            <ListView
+                android:id="@+id/lv_usb_device"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            </ListView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="USB串口设备"
+                android:padding="10dp"/>
+
+            <ListView
+                android:id="@+id/lv_serial_device"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            </ListView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/virtualdbg_layout"
+            android:layout_weight="0.9"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_weight="0.6"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:layout_marginBottom="30dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="端口号："
+                        android:textSize="18sp"/>
+
+                    <Spinner
+                        android:id="@+id/port_spinner"
+                        android:layout_width="200dp"
+                        android:layout_height="match_parent"
+                        android:outlineSpotShadowColor="@color/colorWhite">
+
+                    </Spinner>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:layout_marginBottom="20dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="波特率："
+                        android:textSize="18sp"/>
+
+                    <Spinner
+                        android:id="@+id/baud_spinner"
+                        android:layout_width="200dp"
+                        android:layout_height="match_parent"
+                        android:outlineSpotShadowColor="@color/colorWhite">
+
+                    </Spinner>
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_weight="0.4"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="模拟器挂载PC串口命令"
+                    android:gravity="center"
+                    android:layout_marginBottom="10dp"
+                    android:textSize="16sp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="emulator @Nexus_5_API_21 -qemu -serial COM2"
+                    android:textSize="16sp"
+                    android:gravity="center"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_weight="0.1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/usbcon_btn"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="连接"
+                android:enabled="false"
+                android:textSize="20sp"
+                android:textColor="@color/colorWhite"
+                android:background="@color/colorPrimary"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+<!--</android.support.constraint.ConstraintLayout>-->
+</android.support.v4.widget.SwipeRefreshLayout>

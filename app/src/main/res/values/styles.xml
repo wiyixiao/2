@@ -1,0 +1,52 @@
+<resources>
+
+    <style name="StartTheme" parent="AppTheme">
+        <!--<item name="android:windowBackground">@color/colorWhite</item>-->
+        <item name="android:windowFullscreen">true</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="ColorMenuStyle">
+        <item name="overlapAnchor">false</item>
+        <item name="android:popupBackground">@color/colorWhiteSmoke</item>
+    </style>
+
+    <style name="BlackMenuStyle">
+        <item name="overlapAnchor">false</item>
+        <item name="android:popupBackground">@color/colorEA</item>
+    </style>
+
+    <!--****************************************themes******************************************-->
+    <!--彩色主题-->
+    <!-- Base application theme. -->
+    <!--level-API19,设置系统状态栏透明-->
+    <!--parent="Theme.AppCompat.Light.NoActionBar"-->
+    <style name="AppTheme" parent="Base.Theme.AppCompat.Light.DarkActionBar">
+        <item name="actionOverflowMenuStyle">@style/ColorMenuStyle</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="app_background">@color/colorBackGround</item>
+        <item name="app_about_textcolor">@color/colorPrimaryDark</item>
+        <item name="app_blescan_btn_color">@color/colorPrimaryDark</item>
+        <item name="app_page_title_color">@color/colorPrimary</item>
+        <!--level-API19,设置系统状态栏透明-->
+        <!--<item name="android:windowTranslucentStatus">true</item>-->
+    </style>
+
+    <style name="CommonTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="app_background">@color/colorBackGround</item>
+        <item name="app_page_title_color">@color/colorPrimary</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+    </style>
+
+    <style name="pop_anim_style">
+        <item name="android:windowEnterAnimation">@anim/pop_in</item>
+        <item name="android:windowExitAnimation">@anim/pop_out</item>
+    </style>
+
+    <style name="Theme_dialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+</resources>

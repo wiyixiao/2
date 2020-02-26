@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_column="3"
+    android:padding="5dp"
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintRight_toRightOf="parent">
+
+    <!--发送间隔设置页面，早期版本，已取消发送间隔设置，使用默认值-->
+
+    <TextView
+        android:text="@string/interval_dialog_text"
+        android:layout_row="0"
+        android:layout_column="0"/>
+
+    <EditText
+        android:id="@+id/edit_frequency_value"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:layout_column="1"
+        android:layout_columnSpan="2"
+        android:singleLine="true"
+        android:maxLength="4"
+        android:digits="@string/interval_rule_text"/>
+
+</GridLayout>

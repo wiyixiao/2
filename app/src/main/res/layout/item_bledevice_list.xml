@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:descendantFocusability="blocksDescendants"
+    tools:context=".activity.ActivityMain">
+
+    <!--蓝牙设备列表xml文件-->
+
+    <TextView
+        android:id="@+id/device_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textColor="@color/colorBlack"
+        android:autoSizeMinTextSize="18dp"
+        android:layout_gravity="end"
+        android:textSize="16sp"/>
+
+    <TextView
+        android:id="@+id/device_address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        app:layout_constraintTop_toBottomOf="@+id/device_name"
+        app:layout_constraintRight_toRightOf="parent"
+        android:textColor="@color/colorBlack"
+        android:autoSizeMinTextSize="18dp"
+        android:layout_gravity="end"
+        android:textSize="16sp"/>
+
+    <TextView
+        android:id="@+id/device_state"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/device_address"
+        android:textColor="@color/colorBlack"
+        android:autoSizeMinTextSize="18dp"
+        android:layout_gravity="end"
+        android:textSize="16sp"/>
+
+</android.support.constraint.ConstraintLayout>

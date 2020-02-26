@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="280dp"
+    android:layout_marginEnd="20dp"
+    android:layout_marginStart="20dp"
+    android:background="@color/colorWhite"
+    android:orientation="vertical" >
+
+    <!--更新弹窗xml-->
+
+    <LinearLayout
+        android:id="@+id/dialog_notifly_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="bottom"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/fadeback_cancel"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:singleLine="true"
+            android:text="@string/fadeback_cancel"
+            android:textSize="18sp" />
+
+        <View
+            android:layout_width="0.2dp"
+            android:layout_height="match_parent"
+            android:background="#AAAAAA" />
+
+        <TextView
+            android:id="@+id/fadeback_submit"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:singleLine="true"
+            android:text="@string/fadeback_submit"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+    <View
+        android:id="@+id/dialog_notifly_line"
+        android:layout_width="match_parent"
+        android:layout_height="0.2dp"
+        android:layout_above="@id/dialog_notifly_bottom"
+        android:background="#AAAAAA" />
+
+    <EditText
+        android:id="@+id/fadeback_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/dialog_notifly_line"
+        android:layout_below="@+id/dialog_title"
+        android:layout_margin="10dp"
+        android:gravity="left"
+        android:scrollbars = "vertical"
+        android:singleLine="false"
+        android:textSize="18sp" />
+
+    <LinearLayout
+        android:id="@+id/dialog_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="20dp"
+        android:gravity="center">
+
+        <TextView
+            android:layout_weight="0.8"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:gravity="center"
+            android:text="@string/fadeback_title"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/fadeback_status"
+            android:layout_weight="0.2"
+            android:text=""
+            android:layout_width="0dp"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+</RelativeLayout>

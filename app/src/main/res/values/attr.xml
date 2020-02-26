@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="app_background"/>
+    <attr name="app_foreground"/>
+    <attr name="app_about_textcolor"/>
+    <attr name="app_blescan_btn_color"/>
+    <attr name="app_page_title_color"/>
+</resources>

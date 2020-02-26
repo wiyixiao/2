@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <!--图像处理相关设置xml
+        1、识别红绿蓝每种颜色时发送至串口的内容
+        2、目标跟踪时物体在每个方向移动时向串口发送的内容
+    -->
+    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorBackGround">
+
+        <RelativeLayout
+            android:id="@+id/cv_img_content"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@id/cv_msg_content"
+            app:layout_constraintHeight_percent="0.4"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="spread_inside">
+
+            <ImageView
+                android:id="@+id/img_cv_set"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:adjustViewBounds="true"
+                android:background="@drawable/view_rect_list"
+                android:visibility="visible" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/cv_msg_content"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            android:paddingTop="10dp"
+            app:layout_constraintHeight_percent="0.6"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cv_img_content">
+
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:gravity="center"
+                    android:layout_row="0"
+                    android:layout_column="0"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="minH : "
+                        android:textSize="16sp"/>
+
+                    <SeekBar
+                        android:id="@+id/h_min_th"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:maxHeight="2dp"
+                        android:max="255"
+                        android:progress="127"
+                        android:thumb="@drawable/seek_bar_thumb" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:gravity="center"
+                    android:layout_row="1"
+                    android:layout_column="0"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="maxH: "
+                        android:textSize="16sp"/>
+
+                    <SeekBar
+                        android:id="@+id/h_max_th"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:maxHeight="2dp"
+                        android:max="255"
+                        android:progress="127"
+                        android:thumb="@drawable/seek_bar_thumb" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:gravity="center"
+                    android:layout_row="2"
+                    android:layout_column="0"
+                    android:layout_marginTop="20dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="minS : "
+                        android:textSize="16sp"/>
+
+                    <SeekBar
+                        android:id="@+id/s_min_th"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:maxHeight="2dp"
+                        android:max="255"
+                        android:progress="127"
+                        android:thumb="@drawable/seek_bar_thumb" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:gravity="center"
+                    android:layout_row="3"
+                    android:layout_column="0"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="maxS: "
+                        android:textSize="16sp"/>
+
+                    <SeekBar
+                        android:id="@+id/s_max_th"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:maxHeight="2dp"
+                        android:max="255"
+                        android:progress="127"
+                        android:thumb="@drawable/seek_bar_thumb" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:gravity="center"
+                    android:layout_row="4"
+                    android:layout_column="0"
+                    android:layout_marginTop="20dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="minV : "
+                        android:textSize="16sp"/>
+
+                    <SeekBar
+                        android:id="@+id/v_min_th"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:maxHeight="2dp"
+                        android:max="255"
+                        android:progress="127"
+                        android:thumb="@drawable/seek_bar_thumb" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:gravity="center"
+                    android:layout_row="5"
+                    android:layout_column="0"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="maxV: "
+                        android:textSize="16sp"/>
+
+                    <SeekBar
+                        android:id="@+id/v_max_th"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:maxHeight="2dp"
+                        android:max="255"
+                        android:progress="127"
+                        android:thumb="@drawable/seek_bar_thumb" />
+
+                </LinearLayout>
+
+            </GridLayout>
+
+
+        </RelativeLayout>
+
+    </android.support.constraint.ConstraintLayout>
